@@ -17,12 +17,10 @@
             <h:outputStylesheet library="css" name="dagre.css"/>
             <h:form styleClass="jsfcrud_list_form" prependId="false" enctype="multipart/form-data">
                 <h:panelGrid columns="12">
-                    <!--<em:majorSubjectTemplate/>-->  
-                    <!--专业、课程-->
                     <h:outputLabel value="#{messages.Major}"/>
                     <h:selectOneMenu value="#{majorController.selected}" immediate="true" required="true">
                         <f:selectItem  itemLabel="#{messages.Please}#{messages.Select}"/> 
-                        <f:selectItems value="#{majorControllerA.allList}"/>  <!--显示所有的专业-->  
+                        <f:selectItems value="#{majorController.getMajor4Teacher()}"/>  <!--显示老师教的所有专业-->  
                         <f:ajax render="subjects4Major"/>  <!--ajax触发课程菜单更新-->  
                     </h:selectOneMenu>
                     &nbsp;
@@ -36,8 +34,8 @@
                     <h:outputLabel value="#{messages.Class}"/>
                     <h:selectOneMenu value="#{schoolController.selected}" id="classes4Subject" immediate="true" required="true">
                         <f:selectItem  itemLabel="#{messages.Please}#{messages.Select}"/> 
-                        <f:selectItems value="#{schoolController.getAllClasses()}"/> <!--显示有哪些班级学习该课程-->
-                        <f:ajax render="myGraph" listener="#{studentController.delSelectedStu()}"/> <!--ajax触发学生菜单更新-->
+                        <f:selectItems value="#{teacschoolsubjectController.getClasses4Subject()}"/> <!--显示有哪些班级学习该课程-->
+                        <f:ajax render="myGraph" listener="#{studentController.delSelectedStu()}"/> <!--ajax触发图更新-->
                     </h:selectOneMenu>
                 </h:panelGrid>
             </h:form>

@@ -27,7 +27,7 @@
                     <h:selectOneMenu value="#{schoolController.selected}" id="class4Student" immediate="true" required="true">
                         <f:selectItem  itemLabel="#{messages.Please}#{messages.Select}"/> 
                         <f:selectItems value="#{schoolController.getClass4Student()}"/> <!--显示学生所在的班级-->
-                        <f:ajax render="major4Class" listener="#{studentController.delSelectedStu()}"/> <!--ajax触发学生菜单更新--> 
+                        <f:ajax render="major4Class" listener="#{studentController.delSelectedStu()}"/> <!--ajax触发专业菜单更新--> 
                         
                     </h:selectOneMenu>
                      &nbsp;
@@ -42,7 +42,7 @@
                     <h:selectOneMenu value="#{subjectController.selected}" id="subject4Student" immediate="true" required="true">
                         <f:selectItem  itemLabel="#{messages.Please}#{messages.Select}" itemValue="null"/> 
                         <f:selectItems value="#{subjectController.getSubject4Student()}"/> <!--显示学生有知识点学习情况的课程-->
-                        <f:ajax render="myGraph"/>  <!--ajax触发班级菜单更新-->  
+                        <f:ajax render="myGraph"/>  <!--ajax触发图更新-->  
                     </h:selectOneMenu>
                 </h:panelGrid>
             </h:form>
